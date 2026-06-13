@@ -1,26 +1,152 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@theme {
+  --color-background: #020813;
+  --color-foreground: #f8fafc;
+  --color-water-dark: #030f26;
+  --color-water-blue: #0b2545;
+  --color-water-primary: #134074;
+  --color-water-light: #8da9c4;
+  --color-water-aqua: #00b4d8;
+  --color-water-fresh: #90e0ef;
+  --color-water-pure: #eff6ff;
+  --color-water-accent: #caf0f8;
+  
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-float-slow: float-slow 8s ease-in-out infinite;
+  --animate-pulse-slow: pulse-slow 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  --animate-wave: wave 12s linear infinite;
+  --animate-wave-slow: wave-slow 20s linear infinite;
+  --animate-bubble: bubble 10s infinite linear;
+  
+  @keyframes float {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-15px) rotate(1.5deg); }
+  }
+  @keyframes float-slow {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-10px) rotate(-1deg); }
+  }
+  @keyframes pulse-slow {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.85; transform: scale(1.03); }
+  }
+  @keyframes wave {
+    0% { transform: translateX(0) translateZ(0) scaleY(1); }
+    50% { transform: translateX(-25%) translateZ(0) scaleY(0.85); }
+    100% { transform: translateX(-50%) translateZ(0) scaleY(1); }
+  }
+  @keyframes wave-slow {
+    0% { transform: translateX(0) translateZ(0) scaleY(1); }
+    50% { transform: translateX(-15%) translateZ(0) scaleY(0.9); }
+    100% { transform: translateX(-30%) translateZ(0) scaleY(1); }
+  }
+  @keyframes bubble {
+    0% { transform: translateY(105vh) translateX(0) scale(0.5); opacity: 0; }
+    10% { opacity: 0.4; }
+    90% { opacity: 0.4; }
+    100% { transform: translateY(-10vh) translateX(30px) scale(1.2); opacity: 0; }
   }
 }
 
+:root {
+  --background: #020813;
+  --foreground: #f8fafc;
+  scroll-behavior: smooth;
+}
+
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: #020813;
+  color: #f8fafc;
+  overflow-x: hidden;
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+}
+
+/* Custom Premium Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #030f26;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #134074, #00b4d8);
+  border-radius: 5px;
+  border: 2px solid #030f26;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #90e0ef;
+}
+
+/* Glassmorphism utility classes */
+.glass-panel {
+  background: rgba(11, 37, 69, 0.25);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(144, 224, 239, 0.15);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+.glass-panel-light {
+  background: rgba(239, 246, 255, 0.04);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.glass-navbar {
+  background: rgba(3, 15, 38, 0.7);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(144, 224, 239, 0.1);
+}
+
+.glass-input {
+  background: rgba(11, 37, 69, 0.4);
+  border: 1px solid rgba(144, 224, 239, 0.2);
+  color: #f8fafc;
+  transition: all 0.3s ease;
+}
+.glass-input:focus {
+  outline: none;
+  border-color: #00b4d8;
+  box-shadow: 0 0 0 2px rgba(0, 180, 216, 0.2);
+  background: rgba(11, 37, 69, 0.6);
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, #f8fafc 20%, #90e0ef 60%, #00b4d8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-gradient-aqua {
+  background: linear-gradient(135deg, #90e0ef 0%, #00b4d8 50%, #0b2545 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Water wave styling for timeline or cards */
+.wave-container {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Custom masonry grid styles */
+.masonry-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-gap: 1.5rem;
+  grid-auto-flow: dense;
+}
+
+@media (min-width: 768px) {
+  .masonry-item-tall {
+    grid-row: span 2;
+  }
+  .masonry-item-wide {
+    grid-column: span 2;
+  }
 }
