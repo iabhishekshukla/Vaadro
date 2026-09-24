@@ -117,7 +117,7 @@ export default function Footer() {
             <ul className="space-y-4 text-sm">
               <li className="flex items-start space-x-3">
                 <MapPin className="h-5 w-5 text-water-aqua shrink-0 mt-0.5" />
-                <span>Head Office: Corporate Tower, Sector 62, Noida, UP - 201301</span>
+                <span>Kritpura Barhalganj Gorakhpur 273402 Uttar Prades</span>
               </li>
               <li className="flex items-center space-x-3">
                 <Phone className="h-5 w-5 text-water-aqua shrink-0" />
@@ -175,7 +175,7 @@ export default function Footer() {
 
         {/* Footer Bottom */}
         <div className="border-t border-water-primary/20 pt-8 flex flex-col md:flex-row items-center justify-between text-xs text-slate-500">
-          <p>© {new Date().getFullYear()} VAADRO Pure Water. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} VAADRO Pure Water. All rights reserved. -Made By Abhishek Shukla-</p>
           <div className="flex space-x-6 mt-4 md:mt-0">
             <Link href="/privacy" className="hover:text-slate-400 transition-colors">
               Privacy Policy
