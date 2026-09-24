@@ -167,7 +167,7 @@ export default function Contact() {
             <div className="glass-panel rounded-3xl border border-water-fresh/10 overflow-hidden h-64 relative shadow-lg">
               <iframe
                 title="VAADRO Location Map"
-                src="https://maps.windows.com/?form=WNAMSH&collection=point.26.286515_83.523096_NH227A%2C%20Basawanpur%2C%20Gola%2C%20Up-273402%2C%20India"
+                src="https://www.google.com/maps?q=26.286515,83.523096&output=embed"
                 width="100%"
                 height="100%"
                 style={{ border: 0, filter: "grayscale(1) invert(0.9) contrast(1.2)" }}
